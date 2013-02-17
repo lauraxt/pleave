@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block body %}
+    <h2>Add a company and policy:</h2>
+    <form action="{{ url_for('add_company') }}" method=post class=add-entry>
+      <dl>
+        <dt>Company Name*:
+        <dd><input type=text size=30 name=name>
+        <dt>Parental leave policy*:
+        <dd><textarea name=leave_policy rows=5 cols=40></textarea>
+        <dt>Number of Employees:
+        <dd><input type=text size=10 name=number_of_employees>
+        <dt>Number of employees who are women:
+        <dd><input type=text size=10 name=number_of_women_employees>
+        <dt>Number of days off with full pay in the policy:
+        <dd><input type=text size=10 name=full_pay_days_off>
+        <dt>Leave policy applies equally to all genders:
+        <dd><input type=radio name=applies_equally value=1 checked>Yes <input type=radio name=applies_equally value=0> No
+        <input type=hidden name=parent value=none>
+        <dd><input type=submit value=Share>
+      </dl>
+    </form>
+  <ul class=entries>
+  {% for company in companies %}
+    <li><h2>{{ company.name }}</h2>{{ company.leave_policy|safe }}
+  {% else %}
+    <li><em>Unbelievable.  No entries here so far</em>
+  {% endfor %}
+  </ul>
+{% endblock %}

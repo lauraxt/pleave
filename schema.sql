@@ -1,17 +1,11 @@
-drop table if exists policy;
-create table policy (
-    id INTEGER PRIMARY KEY,
-    company INTEGER,
-    leave_policy STRING NOT NULL,
-    full_pay_days_off INTEGER,
-    applies_to STRING,
-    FOREIGN KEY(company) REFERENCES company(id)
-);
-
-create table company (
-    id INTEGER PRIMARY KEY,
+drop table if exists company_and_policy;
+create table company_and_policy (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     name STRING NOT NULL,
     parent STRING NOT NULL,
-    number_of_women_employees INTEGER,
-    number_of_employees INTEGER
+    leave_policy STRING NOT NULL,
+    number_of_women_employees INTEGER DEFAULT 0,
+    number_of_employees INTEGER DEFAULT 0,
+    full_pay_days_off INTEGER,
+    applies_equally BOOLEAN
 );
