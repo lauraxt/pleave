@@ -1,6 +1,8 @@
 INSTALL & RUN
 =============
 
+You'll need sqlite to be installed locally.
+
 Run these commands:
 
     virtualenv ~/venvs/pleave
@@ -11,6 +13,6 @@ Run these commands:
     # edit config.py to your liking!
     export PLEAVE_SETTINGS=config.py
 
-    python pleave.py
+    python start_db.py ## to initialize the sqlite database
 
-
+    python pleave.py ## To start the flask app
