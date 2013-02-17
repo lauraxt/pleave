@@ -1,10 +1,14 @@
 <!doctype html>
-<title>Flaskr</title>
+<title>Parental Leave Tracker</title>
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
-<div class=page>
-  <h1>Parental Leave Tracker</h1>
-  {% for message in get_flashed_messages() %}
-    <div class=flash>{{ message }}</div>
-  {% endfor %}
-  {% block body %}{% endblock %}
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+<div class=container-fluid>
+  <div class="row-fluid">
+      <h1>Parental Leave Tracker</h1>
+          <script src="static/js/bootstrap.min.js"></script>
+          {% for message in get_flashed_messages() %}
+            <div class=flash>{{ message }}</div>
+          {% endfor %}
+      {% block body %}{% endblock %}
+    </div>
 </div>

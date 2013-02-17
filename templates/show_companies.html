@@ -1,5 +1,16 @@
 {% extends "layout.html" %}
 {% block body %}
+
+<div class="span8">
+<h3>ASCII bar graph of days of parental leave offered by each company</h3>
+<pre>
+{% for line in graph %}
+{{ line }}
+{% endfor %}
+</pre>
+</div>
+
+<div class="span2">
     <h2>Add a company and policy:</h2>
     <form action="{{ url_for('add_company') }}" method=post class=add-entry>
       <dl>
@@ -19,11 +30,5 @@
         <dd><input type=submit value=Share>
       </dl>
     </form>
-  <ul class=entries>
-  {% for company in companies %}
-    <li><h2>{{ company.name }}</h2>{{ company.leave_policy|safe }}
-  {% else %}
-    <li><em>Unbelievable.  No entries here so far</em>
-  {% endfor %}
-  </ul>
+</div>
 {% endblock %}

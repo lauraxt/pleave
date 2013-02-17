@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<div class="span3">
+  <ul class=entries>
+  {% for company in companies %}
+    <li><h2>{{ company.name }}</h2>{{ company.leave_policy|safe }}
+  {% else %}
+    <li><em>Unbelievable.  No entries here so far</em>
+  {% endfor %}
+  </ul>
+</div>
+
+{% endblock %}
